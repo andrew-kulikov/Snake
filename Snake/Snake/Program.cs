@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace Snake {
     class Program {
+        static void Draw(int x, int y, char sym) {
+            Console.SetCursorPosition(x, y);
+            Console.Write(sym);
+        }
         static void Main(string[] args) {
-            Console.WriteLine("I am here");
+            int x1 = 1;
+            int y1 = 1;
+            char sym1 = '%';
+            Draw(x1, y1, sym1);
+            int x2 = 7;
+            int y2 = 6;
+            char sym2 = '*';
+            Draw(x2, y2, sym2);
         }
     }
 }
