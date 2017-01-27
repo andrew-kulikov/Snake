@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Snake {
     class Point {
-        public int x;
-        public int y;
-        public char sym;
+        private int x;
+        private int y;
+        private char sym;
 
         public Point(int _x, int _y, char _sym) {
             x = _x;
