@@ -22,13 +22,25 @@ namespace Snake {
             Point p = new Point(1, 1, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
+            while(true) {
+                if(Console.KeyAvailable) {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    if (key.Key == ConsoleKey.LeftArrow) {
+                        snake.direction = Direction.LEFT;
+                    }
+                    else if (key.Key == ConsoleKey.RightArrow) {
+                        snake.direction = Direction.RIGHT;
+                    }
+                    else if(key.Key == ConsoleKey.UpArrow) {
+                        snake.direction = Direction.UP;
+                    }
+                    else if (key.Key == ConsoleKey.DownArrow) {
+                        snake.direction = Direction.DOWN;
+                    }                                                    
+                }
+                Thread.Sleep(100);
+                snake.Move();
+            }
             Console.ReadLine();
         }
     }
