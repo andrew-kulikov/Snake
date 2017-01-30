@@ -19,13 +19,13 @@ namespace Snake {
         public void Move() {
             Point tail = pList.First();
             pList.Remove(tail);
-            Point head = GetNewPoint();
+            Point head = GetNextPoint();
             pList.Add(head);
             tail.Clear();
             head.Draw();
 
         }
-        private Point GetNewPoint() {
+        private Point GetNextPoint() {
             Point head = pList.Last();
             Point newPoint = new Point(head);
             newPoint.Move(1, direction);
@@ -43,6 +43,18 @@ namespace Snake {
             }
             else if (key == ConsoleKey.DownArrow) {
                 direction = Direction.DOWN;
+            }
+        }
+        internal bool Eat(Point food) {
+            Point head = GetNextPoint();
+            if (head.IsHit(food)) {
+                food.sym = head.sym;
+                pList.Add(food);
+                food.Draw();
+                return true;
+            }
+            else {
+                return false;
             }
         }
     }

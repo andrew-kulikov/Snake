@@ -45,5 +45,13 @@ namespace Snake {
         public override string ToString() {
             return x + "," + y + "," + sym;
         }
+        public bool IsHit(Point p) {
+            if (x == p.x && y == p.y) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     }
 }
