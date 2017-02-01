@@ -23,9 +23,8 @@ namespace Snake {
             pList.Add(head);
             tail.Clear();
             head.Draw();
-
         }
-        private Point GetNextPoint() {
+        public Point GetNextPoint() {
             Point head = pList.Last();
             Point newPoint = new Point(head);
             newPoint.Move(1, direction);
@@ -56,6 +55,18 @@ namespace Snake {
             else {
                 return false;
             }
+        }
+        public bool IsHitTail() {
+            Point head = GetNextPoint();
+            foreach (Point p in pList) {
+                if(p.IsHit(head)) {
+                    return true;
+                }               
+            }
+            return false;
+        }
+        public void GameOver() {
+
         }
     }
 }
